@@ -1,8 +1,12 @@
 # Red Scare
 
-This is the Red Scare assignment for the course Algorithm Design at the IT University of Copenhagen completed in Autumn 2026
+This is Group AB's solution to the Red Scare assignment for the course Algorithm Design at the IT University of Copenhagen completed in Autumn 2026
 
-### Collaborators
+## How to run
+
+
+
+## Collaborators
 -
 -
 -
