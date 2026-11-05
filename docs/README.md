@@ -4,7 +4,7 @@
 - None: Stina
 - Some: Oline
 - Many: Annika
-- Few: Alberte
+- Few: Alberte 
 - Alternate: Pernille
 
 
@@ -12,11 +12,13 @@
 
 None er nok nemmest
 
-to af dem er NP - *"kig på many"*
+to af dem er NP, ```some``` er den ene, ```many``` er den anden - *"kig på many"* 
 
 kig igennem NP hard og kig om nogle ligner - bevis med reduction. Tænk *"huh det lyder mærkeligt ens"*
 
 Eksemplerne kan ikke nødvendigvis applies til alle problemer
+
+Dijkstra kan bruges til ```few```
 
 **Rapporten:**
 - Følg strukturen, lav noget der giver mening. 
