@@ -10,5 +10,5 @@ This is Group AB's solution to the Red Scare assignment for the course Algorithm
 - [Oline](https://github.com/olinesk)
 - [Pernille](https://github.com/PernilleK-ITU)
 - [Stina](https://github.com/StinaKnudsen)
-- 
+- [Annika](https://github.com/AnnikaJensby)
 - [Alberte Bülow](https://github.com/AVNBuelow)
