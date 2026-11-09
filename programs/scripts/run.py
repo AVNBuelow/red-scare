@@ -1,0 +1,1 @@
+# Script to run all the programs and generate results.txt
