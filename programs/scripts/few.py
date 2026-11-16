@@ -2,6 +2,7 @@
 
 import sys
 import parse
+from collections import deque
 from heapq import heapify, heappop, heappush
 
 # Return Path of it exists, else return -1 (in Gex the answer is 0)
@@ -10,27 +11,66 @@ from heapq import heapify, heappop, heappush
 
 # use heapq.heappush and heapq.heappop
 
-def few(s, t, red, adj):
+# Dijkstra's algorithm with a weight function for the red vertices
+def Dijkstra(s, t, red, adj):
     distTo = {v: float('inf') for v in adj} #set all distances to INFINITY
-    distTo[s] = 0 #distance at start vertex is 0
+    distTo[s] = 1 if s in red else 0
 
-    pq = [(0, s)] #remember priority queue
+    pq = [(distTo[s], s)] #remember priority queue
     heapify(pq)
 
     while pq:
-        for e in adj:
-            
+        d, u = heappop(pq)
 
-            
+        if u == t:
+            return d
 
+        for v in adj[u]:
+            weight = 1 if v in red else 0
 
+            if d + weight < distTo[v]:
+                distTo[v] = d + weight
+                heappush(pq, (distTo[v], v))
 
+    return -1
 
+# 0-1 BFS algorithm with a weight function for the red vertices
+def BFS(s, t, red, adj):
+    distTo = {v: sys.maxsize for v in adj} # set all distances to MAX
+    distTo[s] = 1 if s in red else 0 
+
+    dq = deque()
+    dq.append(s)
+
+    while dq:
+        u = dq.popleft()
+
+        if u == t:
+            return distTo[u]
+        
+        for v in adj[u]:
+            weight = 1 if v in red else 0 
+
+            if distTo[u] + weight < distTo[v]:
+                distTo[v] = distTo[u] + weight
+
+                if weight == 0:
+                    dq.appendleft(v)
+                else:
+                    dq.append(v)
+    
+    return distTo[t] if distTo[t] != sys.maxsize else -1
 
 def main():
-    s, t, vertices, red, adj, directed = parse.parse_file(sys.argv[1])
-    result = few(s, t, red, adj)
-    print(result)
-
+    for name, (s, t, vertices, red, adj, directed) in parse.parse_all():
+        resultB = BFS(s, t, red, adj)
+        resultD = Dijkstra(s, t, red, adj)
+        print("name:", name)
+        print("resultB:", resultB)
+        print("resultD:", resultD)
+    
 if __name__ == "__main__":
     main()
+
+# SPØRGSMÅL TIL TA
+# - Hvis s = en rød verices, skal det tælle om vægt 0 eller 1? (Eg. ligesom i fil gnm-10-20-1.txt hvor både s og t er røde)
