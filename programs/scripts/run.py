@@ -54,9 +54,12 @@ def main():
         print("\t".join(row), file=sys.stderr)
 
     widths = [max(len(r[i]) for r in rows) for i in range(len(rows[0]))]
+    line = "-" * 68
     with open(OUT, "w") as f:
+        f.write(line + "\n\n")
         for row in rows:
             f.write("    ".join(c.ljust(w) for c, w in zip(row, widths)).rstrip() + "\n")
+        f.write("\n" + line + "\n")
 
 
 if __name__ == "__main__":

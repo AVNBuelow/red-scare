@@ -1,5 +1,5 @@
 from collections import defaultdict, deque
-from parse import parse_file, parse_all
+from parse import parse, parse_file, parse_all
 
 # Check
 def solve_some(graph, s, t, red, directed):
@@ -114,3 +114,12 @@ def two_disjoint_paths(graph, r, s, t):
             break
         flow += 1
     return flow == 2
+
+def main():
+    s, t, vertices, red, adj, directed = parse()
+    result = solve_some(adj, s, t, red, directed)
+    print(str(result).lower())
+
+if __name__ == "__main__":
+    main()
+
