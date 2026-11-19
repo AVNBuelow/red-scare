@@ -1,4 +1,3 @@
-# Script to run all the programs and generate results.txt
 import sys
 import time
 import threading
@@ -205,15 +204,6 @@ def solve(s, t, vertices, red_set, adj, directed):
     return solve_undirected(adj, s, t, red, deadline)
 
 
-"""  
-def main():
-    data = parse_file(sys.argv[1]) if len(sys.argv) > 1 else parse()
-    ans, exact = solve(*data)
-    print(ans)
-    if not exact:
-        print("# timed out: value is only a lower bound", file=sys.stderr)
-"""
-
 def many(s, t, vertices, red_set, adj, directed):
     """Returns the max number of red vertices on a simple s,t-path, or -1 if no path exists."""
     result = []
@@ -228,6 +218,13 @@ def many(s, t, vertices, red_set, adj, directed):
     th.join()
     return result[0]
 
+
+def main():
+    data = parse_file(sys.argv[1]) if len(sys.argv) > 1 else parse()
+    ans, exact = solve(*data)
+    print(ans)
+    if not exact:
+        print("# timed out: value is only a lower bound", file=sys.stderr)
 
 
 if __name__ == "__main__":
