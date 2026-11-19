@@ -5,12 +5,6 @@ import parse
 from collections import deque
 from heapq import heapify, heappop, heappush
 
-# Return Path of it exists, else return -1 (in Gex the answer is 0)
-# find path from s to t
-# weight for the reds, just do 0 for normal and 1 for red
-
-# use heapq.heappush and heapq.heappop
-
 # Dijkstra's algorithm with a weight function for the red vertices
 def Dijkstra(s, t, red, adj):
     distTo = {v: float('inf') for v in adj} #set all distances to INFINITY
@@ -34,7 +28,7 @@ def Dijkstra(s, t, red, adj):
 
     return -1
 
-# 0-1 BFS algorithm with a weight function for the red vertices
+# 0-1 BFS algorithm with a weight function for the red vertices - used
 def BFS(s, t, red, adj):
     distTo = {v: sys.maxsize for v in adj} # set all distances to MAX
     distTo[s] = 1 if s in red else 0 
@@ -63,14 +57,9 @@ def BFS(s, t, red, adj):
 
 def main():
     for name, (s, t, vertices, red, adj, directed) in parse.parse_all():
-        resultB = BFS(s, t, red, adj)
-        resultD = Dijkstra(s, t, red, adj)
-        print("name:", name)
-        print("resultB:", resultB)
-        print("resultD:", resultD)
+        result = BFS(s, t, red, adj)
+        return result
+        
     
 if __name__ == "__main__":
     main()
-
-# SPØRGSMÅL TIL TA
-# - Hvis s = en rød verices, skal det tælle om vægt 0 eller 1? (Eg. ligesom i fil gnm-10-20-1.txt hvor både s og t er røde)
