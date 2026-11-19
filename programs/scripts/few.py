@@ -56,10 +56,9 @@ def BFS(s, t, red, adj):
     return distTo[t] if distTo[t] != sys.maxsize else -1
 
 def main():
-    for name, (s, t, vertices, red, adj, directed) in parse.parse_all():
-        result = BFS(s, t, red, adj)
-        return result
-        
+    s, t, vertices, red, adj, directed = parse.parse()
+    result = BFS(s, t, red, adj)
+    print(result)
     
 if __name__ == "__main__":
     main()
