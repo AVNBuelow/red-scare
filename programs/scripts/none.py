@@ -11,12 +11,12 @@ answer = -1
 while queue:
     u = queue.popleft()
 
-    if u == t:                      
-            answer = dist[u]
-            break
+    if u == t:
+        answer = dist[u]
+        break
 
     if u in red and u != s:
-            continue
+        continue
 
     for v in adj[u]:
         if v not in dist:
