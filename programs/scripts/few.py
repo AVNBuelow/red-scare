@@ -1,4 +1,5 @@
-# This script solves the Few problem using Dijkstra's algorithm with a weight function for the red vertices
+# This script solves the Few problem using 0-1 BFS algorithm with a weight function for the red vertices
+# Alsi implemented is Dijkstra's algortihm, which can also be used
 
 import sys
 import parse
