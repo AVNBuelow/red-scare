@@ -4,9 +4,9 @@ import time
 import threading
 from collections import deque
 
-from parse import parse, parse_file   # adjust to your parser's module name
+from parse import parse, parse_file   
 
-TIME_LIMIT = 600  # seconds per search; the 1-hour cap is yours to enforce
+TIME_LIMIT = 600  # seconds per search
 
 
 ## Code made in correspondence with AI - Claude.ai
