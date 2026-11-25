@@ -26,7 +26,7 @@ def none(s, t, red, adj):
 
 
 def main():
-    s, t, red, adj = parse_file(sys.argv[1]) if len(sys.argv) > 1 else parse()
+    s, t, vertices, red, adj, directed = parse_file(sys.argv[1]) if len(sys.argv) > 1 else parse()
     print(none(s, t, red, adj))
 
 
